@@ -1,2 +1,11 @@
-.vscode/*.*
-bin/*.*
+.vscode/
+.vscode/launch.json
+.vscode/tasks.json
+
+bin/
+bin/Debug/netcoreapp2.2/coding.dll
+bin/Debug/netcoreapp2.2/coding.pdb
+obj/Debug/netcoreapp2.2/coding.dll
+obj/Debug/netcoreapp2.2/coding.pdb
+
+
