@@ -1,0 +1,11 @@
+C:\Users\eestrada\Desktop\coding\obj\Debug\netcoreapp2.2\coding.csprojAssemblyReference.cache
+C:\Users\eestrada\Desktop\coding\obj\Debug\netcoreapp2.2\coding.csproj.CoreCompileInputs.cache
+C:\Users\eestrada\Desktop\coding\obj\Debug\netcoreapp2.2\coding.AssemblyInfoInputs.cache
+C:\Users\eestrada\Desktop\coding\obj\Debug\netcoreapp2.2\coding.AssemblyInfo.cs
+C:\Users\eestrada\Desktop\coding\bin\Debug\netcoreapp2.2\coding.deps.json
+C:\Users\eestrada\Desktop\coding\bin\Debug\netcoreapp2.2\coding.runtimeconfig.json
+C:\Users\eestrada\Desktop\coding\bin\Debug\netcoreapp2.2\coding.runtimeconfig.dev.json
+C:\Users\eestrada\Desktop\coding\bin\Debug\netcoreapp2.2\coding.dll
+C:\Users\eestrada\Desktop\coding\bin\Debug\netcoreapp2.2\coding.pdb
+C:\Users\eestrada\Desktop\coding\obj\Debug\netcoreapp2.2\coding.dll
+C:\Users\eestrada\Desktop\coding\obj\Debug\netcoreapp2.2\coding.pdb
