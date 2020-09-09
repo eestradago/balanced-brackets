@@ -6,9 +6,11 @@ namespace coding
     {
         static void Main(string[] args)
         {
-            var input = "[()]{}[{(())]}()";
-            Console.WriteLine(input);
-            Console.WriteLine("balanced = {0}", balanced(input).ToString());
+           
+            Console.WriteLine("{{[[(())]]}}");
+            Console.WriteLine("balanced = {0}", balanced("{{[[(())]]}}").ToString());
+            Console.WriteLine("{[(])}");
+            Console.WriteLine("balanced = {0}", balanced("{[(])}").ToString());
         }
 
 
