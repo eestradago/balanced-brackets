@@ -6,13 +6,14 @@ namespace coding
     {
         static void Main(string[] args)
         {
-           
-            Console.WriteLine("{{[[(())]]}}");
-            Console.WriteLine("balanced = {0}", balanced("{{[[(())]]}}").ToString());
+
+            Console.WriteLine("3*(z*(a-(x+3))/(y))");
+            Console.WriteLine("balanced = {0}", balanced("3*(z*(a-(x+3))/(y))").ToString());
             Console.WriteLine("{[(])}");
             Console.WriteLine("balanced = {0}", balanced("{[(])}").ToString());
+            Console.WriteLine("{{[[(())]]}}");
+            Console.WriteLine("balanced = {0}", balanced("{{[[(())]]}}").ToString());
         }
-
 
         static bool balanced(string input)
         {
@@ -35,38 +36,62 @@ namespace coding
             }
 
             //check closing for every open
+            return isEnclosed(input);
+        }
 
-            // get opening
-            string[] openB = input.Split("[");
-            string[] openC = input.Split("{");
-            string[] openP = input.Split("(");
+        static bool isEnclosed(string input, bool result = true)
+        {
 
-            for (int i = 1; i < openC.Length; i++)
-            {
-                string[] closeC = openC[i].Split("}");
-                if (closeC.Length == 1 && closeC[0] != "")
-                {
-                    return false;
-                }
-            }
-            for (int i = 1; i < openP.Length; i++)
-            {
-                string[] closeP = openP[i].Split(")");
-                if (closeP.Length == 1 && closeP[0] != "")
-                {
-                    return false;
-                }
-            }
-            for (int i = 1; i < openB.Length; i++)
-            {
-                string[] closeB = openB[i].Split("]");
-                if (closeB.Length == 1 && closeB[0] != "")
-                {
-                    return false;
-                }
+            //input contains any bracket
+            if (!(input.Contains("{") || input.Contains("[")||input.Contains("(") 
+            || input.Contains("]")||input.Contains(")")|| input.Contains("}") )){
+                return result;
             }
 
-            return true;
+            // find most inner bracket
+            int loB = Math.Max(input.LastIndexOf("["), Math.Max(input.LastIndexOf("{"), input.LastIndexOf("(")));
+            string loStrB = input.Substring(loB, 1);
+            string lcstrB;
+            //determine corresponding closing bracket
+            switch (loStrB)
+            {
+                case "[": lcstrB = "]"; break;
+                case "{": lcstrB = "}"; break;
+                case "(": lcstrB = ")"; break;
+                default: lcstrB = "#"; break;
+            }
+
+            // select the trailing string from the most inner bracket
+            string trail = input.Substring(loB + 1);
+
+            // find most outer closing bracket
+            int tfoB = trail.IndexOf("]") == -1 ? trail.Length : trail.IndexOf("]");
+            int tfoC = trail.IndexOf("}") == -1 ? trail.Length : trail.IndexOf("}");
+            int tfoP = trail.IndexOf(")") == -1 ? trail.Length : trail.IndexOf(")");
+            int fcB = Math.Min(tfoB, Math.Min(tfoC, tfoP));
+            string fcStrB = trail.Substring(fcB, 1);
+
+
+            if (fcB == -1)
+            {
+                return false;
+            }
+            else if (lcstrB == fcStrB)
+            {
+                if (input.Length <= 2)
+                {
+                    return true;
+                }
+                else
+                {
+                    string new_input = input.Remove(loB,(loB+1)+(fcB+1)-loB);
+                    return isEnclosed(new_input, true);                    
+                }
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
